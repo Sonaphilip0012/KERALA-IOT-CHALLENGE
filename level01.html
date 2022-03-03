@@ -1226,17 +1226,6 @@
                             <div class="assigndetails">
                                 <h1>Components Required</h1>
                                 <p>
-                                    >>>  Arduino board *1<br>
-                                    >>>  USB cable *1
-                                </p>
-                            </div>
-                            <div class="assigndetails">
-                                <h1>Circuit Diagram</h1>
-                                <img src="circuit images/circuit14.PNG" alt="circuit14">
-                            </div>
-                            <div class="assigndetails">
-                                <h1>Code</h1>
-                                <p class="code">
                                     >>>  Arduino UNO board
                                     >>>  LDR light sensor x 1 Nos
                                     >>>  LED x 1 Nos
@@ -1245,6 +1234,41 @@
                                     >>>  Breadboard
                                     >>>  Jumper wires (Male to Male) x 5 Nos
                                     >>>  USB cable
+                                </p>
+                            </div>
+                            <div class="assigndetails">
+                                <h1>Circuit Diagram</h1>
+                                <img src="circuit images/circuit7.PNG" alt="circuit14">
+                            </div>
+                            <div class="assigndetails">
+                                <h1>Code</h1>
+                                <p class="code">
+                                    int ldrsensor = 0;// initialize analog pin 0, connected with ldr
+                                    int ledpin = 11;// initialize digital pin 11
+                                    int val;// declare variable val
+                                    int threshold = 1000;// declare threshold value
+                                        
+                                    void setup() 
+                                    {
+                                        pinMode(ledpin, OUTPUT);// set digital pin 11 as “output”
+                                        Serial.begin(9600);// set baud rate at “9600”
+                                    }
+                                        
+                                    void loop() 
+                                    {
+                                        val = analogRead(ldrsensor);// read the value of the sensor and assign it to val
+                                        Serial.println(val);// display the value of val
+                                        if(val>=threshold)//if the light is below the threshold value, the LED will turns on
+                                        {
+                                            digitalWrite(ledpin, HIGH);
+                                            delay(2000);
+                                        }
+                                        else// otherwise the LED is off
+                                        {
+                                            digitalWrite(ledpin, LOW);
+                                            delay(1000);
+                                        }
+                                    }
                                 </p>
                             </div>
                             <div class="assigndetails">
